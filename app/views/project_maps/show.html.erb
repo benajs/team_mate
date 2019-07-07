@@ -1,0 +1,18 @@
+
+<p>
+  <strong>User:</strong>
+  <%= Profile.find(@project_map.user_id).name %>
+</p>
+
+<p>
+  <strong>Project:</strong>
+  <%= Project.find(@project_map.project_id).name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @project_map.description %>
+</p>
+
+<%= link_to 'Edit', edit_project_map_path(@project_map) %> |
+<%= link_to 'Back', project_maps_path %>

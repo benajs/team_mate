@@ -1,0 +1,22 @@
+
+<%= search_form_for @profile_search do |f| %>
+  <div class="field">
+    <%= f.label :name_cont, "Name contains" %>
+    <%= f.text_field :name_cont %>
+  </div>
+  <div class="field">
+    <%= f.label :employee_id_cont, "Employee contains" %>
+    <%= f.text_field :employee_id_cont %>
+  </div>
+   <div class="field">
+    <%= f.label :designation_name_cont, "Client contains" %>
+    <%= f.text_field :designation_name_cont %>
+  </div>
+  <div class="actions"><%= f.submit "Search" %></div>
+
+<% end %>
+
+<%= render 'profiles'%>
+
+<br>
+

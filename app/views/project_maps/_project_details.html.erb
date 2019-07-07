@@ -1,0 +1,30 @@
+
+<h2>Listing Projects</h2>
+
+<div class="small-8 columns">
+<%= link_to 'New Project map', '/project_maps/new'  %>
+<br>
+<table>
+  <thead>
+    <tr>
+      <th>Project</th>
+      <th>Description</th>
+	  <th>Client</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @project_maps_selected.each do |project_map| %>
+      <tr>
+		<% @project=Project.find(project_map.project) %>
+        <td><%= link_to  @project.name ,  project_path(@project.id) %></td>
+        <td><%= project_map.description %></td>
+        <td><%= link_to  @project.client.name ,  client_path(@project.client) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+
+<br>

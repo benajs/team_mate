@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Skill Maps</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Skill</th>
+      <th>User</th>
+      <th>Range</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @skill_maps.each do |skill_map| %>
+      <tr>
+        <td><%= skill_map.skill %></td>
+        <td><%= skill_map.user %></td>
+        <td><%= skill_map.range %></td>
+        <td><%= link_to 'Show', skill_map %></td>
+        <td><%= link_to 'Edit', edit_skill_map_path(skill_map) %></td>
+        <td><%= link_to 'Destroy', skill_map, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Skill map', new_skill_map_path %>

@@ -1,0 +1,26 @@
+
+<h2>Listing Profiles</h2>
+<%= paginate @profile_selected %>
+<table>
+  <thead>
+    <tr>
+      <th><%= sort_link(@profile_search , :name,"Name")%></th>
+      <th><%= sort_link(@profile_search , :employee_id,"Employee ID")%></th>
+      <th><%= sort_link(@profile_search , :im,"Instant Messaging")%></th>
+      <th><%= sort_link(@profile_search , :designation,"Designation")%></th>
+      <th><%= sort_link(@profile_search , :manager_id,"Manager")%></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @profile_selected.each do |profile| %>
+      <tr>
+        <td><%= link_to profile.name , profile %></td>
+        <td><%= profile.employee_id %></td>
+        <td><%= profile.im %></td>
+        <td><%= begin profile.designation.name  rescue '' end%></td>
+        <td><%= begin profile.profile.name rescue '' end%></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -1,0 +1,40 @@
+<%= search_form_for @project_maps_search do |f| %>
+  <div class="field">
+    <%= f.label :profile_name_cont, "User Name contains" %>
+    <%= f.text_field :profile_name_cont %>
+  </div>
+  <div class="field">
+    <%= f.label :project_name_cont, "Project contains" %>
+    <%= f.text_field :project_name_cont %>
+  
+  <div class="actions"><%= f.submit "Search" %></div>
+
+<% end %>
+
+<h2>Listing Projects</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Project</th>
+      <th>Description</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @project_maps_selected.each do |project_map| %>
+      <tr>
+		<% @project_user=Profile.find_by! user_id: project_map.user_id %>
+        <td><%= link_to  @project_user.name ,  profile_path(@project_user.id) %></td>
+        <td><%= link_to Project.find(project_map.project.id).name,  project_path(project_map.project) %></td>
+        <td><%= project_map.description %></td>
+        <td><%= link_to 'Destroy', project_map, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<%= link_to 'New Project map', new_project_map_path %>

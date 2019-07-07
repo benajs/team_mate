@@ -1,0 +1,35 @@
+<nav class="top-bar">
+   <h2 class="title-area" style="color:#fff" > TeamMate</h2>
+  <section class="top-bar-section right">
+    <ul >
+	 <li><%= link_to "Home", root_path %></li>
+      <li class="divider"></li>
+	  <li><%= link_to "Users", profiles_path %></li>
+      <li class="divider"></li>
+      <li><%= link_to "Projects", projects_path %></li>
+      <li class="divider"></li>
+	  
+      <li><%= link_to "Clients" , clients_path  %></li>
+      <li class="divider"></li>
+	 
+			 <%if signed_in?%>		 
+			 <li class="has-dropdown">
+			   <a href="#" data-dropdown="drop"><%=current_user.email %></a>
+					<ul id="drop" class="dropdown" >
+					<li><%=link_to "Edit User", edit_user_registration_path%></li> 
+					<li><%= link_to "View Profile", profile_path(current_user.id) %></li>
+					</ul></li>
+				<li class="divider"></li>
+				<li><%=link_to "Logout", destroy_user_session_path, method: :delete%></li>
+			<%else%>
+				<li><%=link_to "Register", new_user_registration_path%></li>
+					  <li class="divider"></li>
+				<li><%=link_to "Login", new_user_session_path%></li>
+			<%end%>
+      <li class="divider"></li>
+	  
+	
+    </ul>
+  </section>
+</nav>
+

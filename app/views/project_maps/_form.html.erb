@@ -1,0 +1,13 @@
+<%= simple_form_for(@project_map) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+	<%= f.input :profile, as: :hidden %>
+    <%= f.association :project , label_method: :name , value_method: :id %>
+    <%= f.input :description %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

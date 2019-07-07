@@ -1,0 +1,20 @@
+
+<h2> <%= @project.name %></h2>
+
+<p>
+  <p>
+	<%= @project.description %>
+  </p>
+</p>
+
+<p>
+  <strong>Client:</strong>
+  <%= @project.client.name %>
+</p>
+
+<div class="small-1">
+<%= link_to 'Edit', edit_project_path(@project) %> | 
+<%= link_to 'Back', projects_path %>
+</div>
+<%= render 'project_maps/user_details'%>
+

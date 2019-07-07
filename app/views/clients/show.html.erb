@@ -1,0 +1,20 @@
+<div>
+<p>
+  <strong>Name:</strong>
+  <%= @client.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @client.description %>
+</p>
+  <%= @name %>
+
+<%= link_to 'Edit', edit_client_path(@client) %> |
+<%= link_to 'Back', clients_path %>
+</div>
+<p>
+<div >
+<%= render 'projects/projects' %>
+</div>
+</p>

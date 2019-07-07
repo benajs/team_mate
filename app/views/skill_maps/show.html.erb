@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Skill:</strong>
+  <%= @skill_map.skill %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @skill_map.user %>
+</p>
+
+<p>
+  <strong>Range:</strong>
+  <%= @skill_map.range %>
+</p>
+
+<%= link_to 'Edit', edit_skill_map_path(@skill_map) %> |
+<%= link_to 'Back', skill_maps_path %>

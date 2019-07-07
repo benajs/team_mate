@@ -1,0 +1,25 @@
+<script type="text/javascript">	
+		window.onload = function () {	
+		var chart = new CanvasJS.Chart("chartContainer", {	
+			theme: "theme1",	
+			title:{	
+					text: "Skill Set"       
+ 				},	
+			animationEnabled: true,     
+              	legend:{	
+              		verticalAlign: "center",	horizontalAlign: "left",	fontSize:20,	fontFamily:"Tahoma"	},	
+			data: [	
+				  {	
+					type: "pie",	
+               		toolTipContent: "Skill expertise out of 5: {y}",     
+					dataPoints: [	
+						  { label: 'No Skill updated {y} - #percent%', y: 1 }	
+	  					]	
+				  }	
+				  ]	
+				  });	
+				  chart.render();	
+			  } 
+ function toggleResult(e) { 
+ var displayElement = e.target.nextSibling; 
+  displayElement.style.display = displayElement.style.display != 'block' ? 'block' : 'none'; }</script>

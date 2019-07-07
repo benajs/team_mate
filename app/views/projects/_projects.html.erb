@@ -1,0 +1,33 @@
+<h2>Listing Projects</h2>
+<%= link_to 'New Project', new_project_path %>
+<br><br>
+
+<div section="right">
+
+<%= paginate @project_selected %>
+</div>
+<table>
+  <thead>
+    <tr>
+		<th ><%= sort_link(@project_search, :name, "Name") %></th>
+		<th ><%= sort_link(@project_search, :description, "Description") %></th>
+		<th ><%= sort_link(@project_search, :client, "Client") %></th>
+		<th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @project_selected.each do |project| %>
+      <tr>
+        <td><%= link_to project.name, project %></td>
+        <td><%= project.description %></td>
+        <td><%= link_to Client.find(project.client).name, Client.find(project.client)%></td>
+			<td><%= link_to 'Edit', edit_project_path(project) %></td>
+			<td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
